@@ -66,6 +66,7 @@ def reveal(board, field, rows, cols, revealed):
         reveal(board, (m,n), rows, cols, revealed)
 
 def play():
+    """ Funkcja startowa """
     width = 10
     height = 10
     no_mines = 10
