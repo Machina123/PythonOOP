@@ -3,14 +3,17 @@ import random
 class Coin:
 
     def __init__(self):
+        """Konstruktor klasy Coin"""
         self._side = "Heads" if random.randrange(2)==0 else "Tails"
 
 
     def throw(self):
+        """Wykonanie pseudolosowego rzutu"""
         self._side = "Heads" if random.randrange(2)==0 else "Tails"
 
 
     def show_side(self):
+        """Zwraca widoczną stronę monety"""
         return self._side
 
 
