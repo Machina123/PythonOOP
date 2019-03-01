@@ -1,4 +1,5 @@
 import random
+
 def get_number(a,b,text):
     """ Pobiera i zwraca liczbę całkowitą z zakresu <a; b> """
     while True:
