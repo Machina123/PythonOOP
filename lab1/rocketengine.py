@@ -1,3 +1,4 @@
+# Autor: Patryk Ciepiela
 class RocketEngine:
     count = 0
     all_power = 0

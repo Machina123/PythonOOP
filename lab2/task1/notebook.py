@@ -12,10 +12,12 @@ class Note:
         self.creation_date = datetime.datetime.now()
 
     def match(self, needle):
-        if (needle in self.tag) or (needle in self.text):
-            return True
-        else: 
-            return False
+        # if (needle in self.tag) or (needle in self.text):
+        #     return True
+        # else:
+        #     return False
+        return True if ((needle in self.tag) or (needle in self.text)) else False
+
     
     def __str__(self):
         return f"ID: {self.id}\nCreation date:{self.creation_date}\nTag: {self.tag}\nText: {self.text}"
