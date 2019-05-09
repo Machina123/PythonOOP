@@ -5,7 +5,10 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'          # centrowanie okna
 pygame.init()
 
 ## ustawienia ekranu i gry
-screen = pygame.display.set_mode(gm.SIZESCREEN)
+
+# macOS specific
+window_flags = pygame.DOUBLEBUF | pygame.HWSURFACE | pygame.FULLSCREEN
+screen = pygame.display.set_mode(gm.SIZESCREEN, window_flags)
 pygame.display.set_caption('Prosta gra platformowa...')
 clock = pygame.time.Clock()
 
@@ -69,19 +72,19 @@ class Player(pygame.sprite.Sprite):
         elif event.type == pygame.KEYUP:
             self.stop()
 
-class Platform(pygame.Surface):
+class Platform(pygame.sprite.Sprite):
 
     def __init__(self, colour, width, height, rect_x, rect_y):
         self.width = width
         self.height = height
-        self.rect = pygame.Surface([width, height])
-        self.rect_rect = self.rect.get_rect()
-        self.rect_rect.x = rect_x
-        self.rect_rect.y = rect_y
-        self.rect.fill(colour)
+        self.image = pygame.Surface([width, height])
+        self.rect = self.image.get_rect()
+        self.rect.x = rect_x
+        self.rect.y = rect_y
+        self.image.fill(colour)
 
     def draw(self, surface):
-        surface.blit(self.rect, self.rect_rect)
+        surface.blit(self.image, self.rect)
 
     def update(self):
         pass

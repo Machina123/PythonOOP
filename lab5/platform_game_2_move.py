@@ -6,7 +6,11 @@ pygame.init()
 
 
 ## ustawienia ekranu i gry
-screen = pygame.display.set_mode(gm.SIZESCREEN)
+
+# macOS specific
+window_flags = pygame.DOUBLEBUF | pygame.HWSURFACE | pygame.FULLSCREEN
+
+screen = pygame.display.set_mode(gm.SIZESCREEN, window_flags)
 pygame.display.set_caption('Prosta gra platformowa...')
 clock = pygame.time.Clock()
 
